@@ -31,7 +31,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_profile, viewGroup, false);
         SharedPreferences preferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        String username = preferences.getString("username", "");
+        String primerNombre = preferences.getString("primerNombre", "");
+        String apellidoPaterno = preferences.getString("apellidoPaterno", "");
         String url_imagen = preferences.getString("urlImagen", "");
 
         TextView welcomeText = inflate.findViewById(R.id.user_txt);
@@ -41,6 +42,37 @@ public class ProfileFragment extends Fragment {
 
         ImageView perfilImg = inflate.findViewById(R.id.imagePerfil);
 
+        RelativeLayout facebookBtn = inflate.findViewById(R.id.facebook);
+        facebookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSocialLink(getString(R.string.facebook_link));
+            }
+        });
+
+        RelativeLayout youtubeBtn = inflate.findViewById(R.id.youtube);
+        youtubeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSocialLink(getString(R.string.youtube_link));
+            }
+        });
+
+        RelativeLayout instagramBtn = inflate.findViewById(R.id.instagram);
+        instagramBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSocialLink(getString(R.string.instagram_link));
+            }
+        });
+
+        RelativeLayout twitterBtn = inflate.findViewById(R.id.twitter);
+        twitterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSocialLink(getString(R.string.x_link));
+            }
+        });
 
         editar_Perfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,17 +81,16 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         alumni_web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // URL de la página web que deseas abrir
-                String url = "http://localhost:4200/#/inicio";
 
                 // Crear un Intent con la acción ACTION_VIEW
                 Intent intent = new Intent(Intent.ACTION_VIEW);
 
                 // Establecer la URL en el Intent
-                intent.setData(Uri.parse(url));
+                intent.setData(Uri.parse(getString(R.string.alumni_link)));
 
                 // Verificar si hay aplicaciones que puedan manejar el Intent
                 if (getContext() != null) {
@@ -90,7 +121,10 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        welcomeText.setText(getString(R.string.welcome_user_name).replace("{user name}", username));
+        String mensajeBienvenida = getString(R.string.mensajeBienvenida, primerNombre, apellidoPaterno);
+        String mensajeBienvenidaCapitalizado = capitalizeFirstLetterOfEachWord(mensajeBienvenida);
+        welcomeText.setText(mensajeBienvenidaCapitalizado);
+
 
         Glide.with(getContext())
                 .load(url_imagen)
@@ -98,6 +132,40 @@ public class ProfileFragment extends Fragment {
 
         return inflate;
     }
+
+    private String capitalizeFirstLetterOfEachWord(String input) {
+        StringBuilder output = new StringBuilder();
+        boolean capitalizeNext = true;
+
+        for (char c : input.toCharArray()) {
+            if (Character.isWhitespace(c)) {
+                capitalizeNext = true;
+                output.append(c);
+            } else if (capitalizeNext) {
+                output.append(Character.toUpperCase(c));
+                capitalizeNext = false;
+            } else {
+                output.append(Character.toLowerCase(c));
+            }
+        }
+
+        return output.toString();
+    }
+
+    private void openSocialLink(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+
+        intent.setData(Uri.parse(url));
+
+        if (getContext() != null) {
+            // Abrir la página web
+            getContext().startActivity(intent);
+        } else {
+            // Si no hay aplicaciones que puedan manejar el Intent, mostrar un mensaje de error
+            Toast.makeText(getContext(), "No se pudo abrir la página web", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     public void shareApp() {
         // Note: Corregir

@@ -139,6 +139,10 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("tokenType", response.body().getTokenType());
                     editor.putInt("usuarioId", response.body().getUsuario_id());
                     editor.putString("username", response.body().getUsername());
+                    editor.putString("primerNombre", persona.getPrimerNombre());
+                    editor.putString("segundoNombre", persona.getSegundoNombre());
+                    editor.putString("apellidoMaterno", persona.getApellidoMaterno());
+                    editor.putString("apellidoPaterno", persona.getApellidoPaterno());
                     editor.putString("urlImagen", responseNewData.body().getUrlImagen());
                     editor.putInt("id_persona", persona.getId());
                     editor.putString("cedulaUser", cedulaUser);

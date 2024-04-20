@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="facebook_link">https://www.facebook.com/TecAzuay</string>
+    <string name="facebook">Síguenos en Facebook</string>
+    <string name="youtube_link">https://www.youtube.com/@tecnologicodelazuay8305</string>
+    <string name="youtube">Síguenos en Youtube</string>
+    <string name="instagram_link">https://www.instagram.com/tecdelazuay/?hl=es-la</string>
+    <string name="instagram">Síguenos en Instagram</string>
+    <string name="x_link">https://twitter.com/TecAzuay</string>
+    <string name="x">Síguenos en Twitter</string>
+    <string name="alumni_link">http://alumnisericefornted123.s3-website.us-east-2.amazonaws.com/#/inicio</string>
+    <string name="alumni_page">Visitar Alumni Web</string>
+
     <string name="app_name">ALUMNI</string>
+    <string name="app_version">ver. 0.0.1</string>
     <string name="share_via">Compartir vía</string>
     <string name="base_link_apk">https://play.google.com/store/apps/details?id=</string>
     <string name="cancel">Cancelar</string>
@@ -22,13 +34,16 @@
     <string name="accept">Aceptar y Continuar</string>
     <string name="hi_user">¡HOLA!\n[Nombre de Usuario]</string>
     <string name="log_out">Cerrar Sesión</string>
+    <string name="salir_app">Salir de la App</string>
+    <string name="visitenos">Visitenos en</string>
     <string name="success_alert">¡Éxito!</string>
     <string name="success_mssg">Se guardó la información correctamente</string>
     <string name="fail_alert">Algo ocurrió…</string>
+    <string name="mensajeBienvenida">Hola, %1$s %2$s</string>
 
     <string name="recent_offerts">Ofertas Recientes</string>
     <string name="welcome_mss">¡Bienvenido a ALUMNI ⭐!</string>
-    <string name="welcome_user_name">¡Hola, bienvenid@</string>
+    <string name="welcome_user_name">¡Hola, {user name}</string>
     <string name="search_results">Resultados de la búsqueda</string>
     <string name="update">Actualizar</string>
     <string name="recover_your_account">Recupera tu cuenta</string>
