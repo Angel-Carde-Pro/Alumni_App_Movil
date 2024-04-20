@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
     private static Retrofit retrofit;
     //    private static final String BASE_URL = "http://alumnibacked23-env.eba-gemair7x.us-east-1.elasticbeanstalk.com";
-//    private static final String BASE_URL = "http://alumnibacked23-env-43.eba-gemair7x.us-east-1.elasticbeanstalk.com/";
-    private static final String BASE_URL = "http://192.168.18.61:8080/";
+    private static final String BASE_URL = "http://alumnibacked23-env-43.eba-gemair7x.us-east-1.elasticbeanstalk.com/";
+//    private static final String BASE_URL = "http://192.168.18.61:8080/";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
