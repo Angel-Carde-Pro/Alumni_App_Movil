@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ALUMNI</string>
+    <string name="share_via">Compartir vía</string>
+    <string name="base_link_apk">https://play.google.com/store/apps/details?id=</string>
+    <string name="cancel">Cancelar</string>
+    <string name="signin_button_text">Iniciar sesión</string>
+    <string name="search_hint">Buscar...</string>
+    <string name="search_menu_title">Buscar</string>
+    <string name="more">Más</string>
+    <string name="sure_exit">¿Estás seguro de que quieres salir?</string>
+
+    <string name="bottom_navigation_menu_home">Inicio</string>
+    <string name="help">Ayuda</string>
+    <string name="share">Compartir</string>
+    <string name="role">Administrador</string>
+    <string name="account">Cuenta</string>
+    <string name="personal_data">Datos personales</string>
+    <string name="others">Otros</string>
+    <string name="playstore">Visitar la app en Play Store</string>
+    <string name="accept">Aceptar y Continuar</string>
+    <string name="hi_user">¡HOLA!\n[Nombre de Usuario]</string>
+    <string name="log_out">Cerrar Sesión</string>
+    <string name="success_alert">¡Éxito!</string>
+    <string name="success_mssg">Se guardó la información correctamente</string>
+    <string name="fail_alert">Algo ocurrió…</string>
+
+    <string name="recent_offerts">Ofertas Recientes</string>
+    <string name="welcome_mss">¡Bienvenido a ALUMNI ⭐!</string>
+    <string name="welcome_user_name">¡Hola, bienvenid@</string>
+    <string name="search_results">Resultados de la búsqueda</string>
+    <string name="update">Actualizar</string>
+    <string name="recover_your_account">Recupera tu cuenta</string>
+    <string name="recover_your_account_btn">Recuperar Cuenta</string>
+    <string name="search_mss">¿Qué es lo que estás buscando?</string>
+    <string name="see_more">Ver Más</string>
+    <string name="fail_mssg">Fallo al intentar guardar la información, por favor revise su conexión a internet.</string>
+
+    <string name="select_option">Seleccione una opción</string>
+    <string name="user_txt">Usuario:</string>
+    <string name="user_hint">Ingresa tu nombre de usuario.</string>
+    <string name="lastname_txt">Primer Apellido:</string>
+    <string name="lastname2_txt">Segundo Apellido:</string>
+    <string name="lastname_hint">Ingresa tu primer apellido.</string>
+    <string name="lastname2_hint">Ingresa tu segundo apellido.</string>
+    <string name="phone_number_txt">Teléfono:</string>
+    <string name="phone_number_hint">Ingrese su número de teléfono.</string>
+    <string name="fecha_nac_hint">Ingrese su fecha de nacimiento.</string>
+    <string name="first_name_txt">Primer Nombre:</string>
+    <string name="second_name_txt">Segundo Nombre:</string>
+    <string name="first_name_hint">Ingresa tu primer nombre.</string>
+    <string name="second_name_hint">Ingresa tu segundo nombre.</string>
+    <string name="date_txt">Fecha:</string>
+    <string name="fecha_nac_txt">Fecha de Nacimiento:</string>
+    <string name="app_settings_txt">Ajustes De La App</string>
+    <string name="forgot_pwd_txt">¿Olvidaste tu contraseña?</string>
+    <string name="update_user">Actualizar Perfil</string>
+    <string name="applications">POSTULACIONES</string>
+    <string name="job_offers">OFERTAS LABORALES</string>
+    <string name="role_id">Administrador</string>
+
+    <string name="navigation_drawer_open">Abrir cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
+
+    <string name="no_especificado">No especificado</string>
+    <string name="error_conexion">Error de conexión:</string>
+
+    <string name="empresa_name">Nombre de la empresa:</string>
+    <string name="ubicacion">Ubicación</string>
+    <string name="area">Área de Conocimiento</string>
+    <string name="cargo">Cargo</string>
+    <string name="experiencia">Experiencia</string>
+    <string name="fecha_publi">Fecha de Publicación</string>
+    <string name="fecha_aper">Fecha de Apertura</string>
+    <string name="fecha_cierre">Fecha de Cierre</string>
+    <string name="tiempo">Tiempo</string>
+    <string name="salario">Salario</string>
+    <string name="postular">Postular</string>
+    <string name="responder">RESPONDER</string>
+    <string name="search_postulacion">Buscar Postulación.....</string>
+    <string name="search_oferta">Buscar Oferta.....</string>
+    <string name="search_encuesta">Buscar Encuesta.....</string>
+
+</resources>

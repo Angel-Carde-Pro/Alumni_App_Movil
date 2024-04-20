@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="menuOptions_Alumni">
+        <item>Dashboard</item>
+        <item>Ofertas laborales</item>
+        <item>Mis postulaciones</item>
+        <item>Encuestas</item>
+        <item>Ajustes</item>
+    </array>
+    <array name="menuOptions_Empresario">
+        <item>Dashboard</item>
+        <item>Empresas</item>
+        <item>Ajustes</item>
+    </array>
+</resources>
+
+

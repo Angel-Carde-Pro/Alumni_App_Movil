@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fondotextview">#1EA4A4A9</color>
+    <color name="blancoSplash">#FAFAFA</color>
+
+    <color name="purple">#6300a3</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="blueista">#1f54c3</color>
+    <color name="blueistadark">#00356c</color>
+    <color name="azulinicio">#004f9f</color>
+
+    <color name="graylowtone">#f2f2f3</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="statusbar_normal">#1b3ff1</color>
+    <color name="statusbar_profile">#7428d6</color>
+    <color name="statusbar_ofertas">#a5c6d5</color>
+    <color name="statusbar_postulaciones">#a1a5d3</color>
+    <color name="statusbar_encuestas">#B8A59E</color>
+
+</resources>

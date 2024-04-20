@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#00000000"
+                    android:elevation="0dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="Dashboard" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp">
+
+                    <ImageView
+                        android:id="@+id/imageWave"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/top_background2" />
+
+                </FrameLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_imagePostuladop"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/alumni_logo" />
+
+                <TextView
+                    android:id="@+id/welcome_mss"
+                    android:layout_width="203dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="190dp"
+                    android:text="@string/welcome_mss"
+                    android:textColor="@color/blancoSplash"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/welcome_Text"
+                    android:layout_width="203dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="105dp"
+                    android:text="@string/welcome_user_name"
+                    android:textColor="@color/blancoSplash"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="110dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="35dp"
+                    android:background="#FEB31D" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="80dp"
+                    android:layout_height="6dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="160dp"
+                    android:src="@drawable/linea_oran" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="157dp"
+                    android:layout_height="149dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="140dp"
+                    android:paddingRight="-130dp"
+                    android:src="@drawable/hoja_2" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="157dp"
+                    android:layout_height="149dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="200dp"
+                    android:paddingRight="-100dp"
+                    android:src="@drawable/hoja_1" />
+
+                <TextView
+                    android:id="@+id/role_name_text"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="35dp"
+                    android:text="@string/role_id"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/recent_activiy"
+                    android:layout_width="203dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="310dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/recent_offerts"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/more_btn"
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="0dp"
+                    android:src="@drawable/more_items_icon" />
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recent_items"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

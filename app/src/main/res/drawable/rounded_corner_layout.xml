@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="10dp" /> <!-- Ajusta el radio según sea necesario -->
+    <solid android:color="#ffffff" /> <!-- Cambia el color de fondo según sea necesario -->
+</shape>
