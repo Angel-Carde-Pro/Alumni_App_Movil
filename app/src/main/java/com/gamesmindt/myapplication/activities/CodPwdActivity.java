@@ -1,6 +1,7 @@
 package com.gamesmindt.myapplication.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -31,9 +33,10 @@ import retrofit2.Response;
 public class CodPwdActivity extends AppCompatActivity {
     LoadingDialog loadingDialog = new LoadingDialog(CodPwdActivity.this);
     Button btnSendCod;
+    SharedPreferences preferences;
     TextView iniciarSesionTxt;
-
     EditText emailTxt;
+    String accessToken = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class CodPwdActivity extends AppCompatActivity {
         RecoverPassServiceApi recoverPassServiceApi = RetrofitClient.getRetrofitInstance().create(RecoverPassServiceApi.class);
         LoadingDialog loadingDialog = new LoadingDialog(CodPwdActivity.this);
 
+        preferences = CodPwdActivity.this.getSharedPreferences("user_data", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,22 +72,22 @@ public class CodPwdActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(emailTxt.getText())) {
                     MailRequest mailRequest = new MailRequest();
+                    mailRequest.setName(emailTxt.getText().toString());
                     mailRequest.setTo(emailTxt.getText().toString());
-                    System.out.println("CORREO: " + emailTxt.getText().toString());
-                    Call<String> call = recoverPassServiceApi.sendTokenMail(mailRequest);
+                    mailRequest.setFrom("infoalumni@gmail.com");
+                    mailRequest.setSubject("Petición de cambio de contraseña");
+                    mailRequest.setCaseEmail("reset-password");
+
+                    Call<String> call = recoverPassServiceApi.sendTokenMail(mailRequest, "Bearer " + accessToken);
                     loadingDialog.startLoagingDialog();
                     call.enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
-                            int status = response.code();
-                            if (status == 409) {
+                            if (response.isSuccessful()) {
+                                Toast.makeText(CodPwdActivity.this, "Se ha enviado un correo a su dirección de correo electrónico para restablecer su contraseña", Toast.LENGTH_SHORT).show();
                                 finish();
-                                loadingDialog.showFailureDialog("Recuperacion", "Al correo electronico se le envio un codigo de recuperacion");
-                                Intent recoverIntent = new Intent(CodPwdActivity.this, SendCodActivity.class);
-                                startActivity(recoverIntent);
                             } else {
-                                System.out.println("NO FUNCIONA PERO SI");
-                                loadingDialog.showFailureDialog("Whopps!...", "No se encontro el email");
+                                loadingDialog.showFailureDialog("Opps...", "El correo que ingresó ya contiene un token de recuperación activo.");
                             }
                         }
 
@@ -93,10 +98,7 @@ public class CodPwdActivity extends AppCompatActivity {
                             loadingDialog.showFailureDialog("Error de conexión", "Revise su conexión a internet.");
                         }
                     });
-
                 }
-
-
             }
         });
     }
