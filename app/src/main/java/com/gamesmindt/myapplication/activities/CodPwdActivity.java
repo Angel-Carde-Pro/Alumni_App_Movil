@@ -43,7 +43,6 @@ public class CodPwdActivity extends AppCompatActivity {
         LoadingDialog loadingDialog = new LoadingDialog(CodPwdActivity.this);
 
 
-
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -66,22 +65,22 @@ public class CodPwdActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                if(!TextUtils.isEmpty(emailTxt.getText())){
+                if (!TextUtils.isEmpty(emailTxt.getText())) {
                     MailRequest mailRequest = new MailRequest();
                     mailRequest.setTo(emailTxt.getText().toString());
                     System.out.println("CORREO: " + emailTxt.getText().toString());
-                    Call<String> call =  recoverPassServiceApi.sendTokenMail(mailRequest);
+                    Call<String> call = recoverPassServiceApi.sendTokenMail(mailRequest);
+                    loadingDialog.startLoagingDialog();
                     call.enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             int status = response.code();
-                            if (status == 409){
-                                System.out.println("SI FUNCIONA");
+                            if (status == 409) {
                                 finish();
                                 loadingDialog.showFailureDialog("Recuperacion", "Al correo electronico se le envio un codigo de recuperacion");
                                 Intent recoverIntent = new Intent(CodPwdActivity.this, SendCodActivity.class);
                                 startActivity(recoverIntent);
-                            }else {
+                            } else {
                                 System.out.println("NO FUNCIONA PERO SI");
                                 loadingDialog.showFailureDialog("Whopps!...", "No se encontro el email");
                             }
@@ -91,12 +90,11 @@ public class CodPwdActivity extends AppCompatActivity {
                         public void onFailure(Call<String> call, Throwable t) {
                             t.getStackTrace();
                             System.out.println(t.getStackTrace());
+                            loadingDialog.showFailureDialog("Error de conexión", "Revise su conexión a internet.");
                         }
                     });
 
                 }
-
-
 
 
             }
