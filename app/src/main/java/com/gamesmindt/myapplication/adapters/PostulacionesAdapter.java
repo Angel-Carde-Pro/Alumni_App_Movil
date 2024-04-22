@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +19,11 @@ import com.bumptech.glide.Glide;
 import com.gamesmindt.myapplication.Model.Postulacion;
 import com.gamesmindt.myapplication.Model.Postulacion;
 import com.gamesmindt.myapplication.R;
+import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class PostulacionesAdapter extends RecyclerView.Adapter<PostulacionesAdapter.PostulacionViewHolder> {
@@ -105,7 +110,6 @@ public class PostulacionesAdapter extends RecyclerView.Adapter<PostulacionesAdap
         @SuppressLint("SetTextI18n")
         public void bind(Postulacion Postulacion) {
             name_txt.setText(Postulacion.getOfertaLaboral().getEmpresa().getNombre());
-            estado.setText("Estado: " + Postulacion.getEstado());
             salario.setText("Salario: $ " + Postulacion.getOfertaLaboral().getSalario());
             cargoRe_Text.setText(Postulacion.getOfertaLaboral().getCargo());
             String fechaPublicacion = Postulacion.getOfertaLaboral().getFechaPublicacion();
@@ -113,11 +117,14 @@ public class PostulacionesAdapter extends RecyclerView.Adapter<PostulacionesAdap
             if (Postulacion.getEstado().equals("CANCELADA_POR_GRADUADO")) {
                 eliminarButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#35bc1e")));
                 eliminarButton.setText("POSTULAR");
+                estado.setText("Estado: CANCELADA");
             } else {
                 eliminarButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF2E2E")));
                 eliminarButton.setText("CANCELAR");
+                estado.setText("Estado: " + Postulacion.getEstado());
             }
 
+            parseFechas(fechaPublicacion, fechView);
             if (fechaPublicacion != null) {
                 fechView.setText("Fecha de Publicación: " + fechaPublicacion);
             } else {
@@ -134,5 +141,24 @@ public class PostulacionesAdapter extends RecyclerView.Adapter<PostulacionesAdap
                 System.out.println("No se pudo obtener la imagen");
             }
         }
+
+        private void parseFechas(String fecha, TextView textView) {
+            if (fecha != null) {
+                SimpleDateFormat formatoFechaEntrada = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
+                try {
+                    Date fechaDate = formatoFechaEntrada.parse(fecha);
+                    SimpleDateFormat formatoSalida = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
+                    String fechaFormateada = formatoSalida.format(fechaDate);
+                    textView.setText(fechaFormateada);
+                    textView.setVisibility(View.VISIBLE);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    textView.setVisibility(View.GONE);
+                }
+            } else {
+                textView.setVisibility(View.GONE);
+            }
+        }
+
     }
 }

@@ -53,7 +53,7 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".activities.DetallePostulaciónActivity"
+            android:name=".activities.DetallePostulacionActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity

@@ -88,13 +88,13 @@ public class DetalleOfertaActivity extends AppCompatActivity {
                     setEdiTextValue(ofertaDetalle.getAreaConocimiento(), findViewById(R.id.areaConocimiento), findViewById(R.id.title3TL));
                     setEdiTextValue(ofertaDetalle.getCargo(), findViewById(R.id.cargo), findViewById(R.id.title4TL));
                     setEdiTextValue(ofertaDetalle.getExperiencia(), findViewById(R.id.experiencia), findViewById(R.id.title5TL));
+
                     parseFechas(ofertaDetalle.getFechaPublicacion(), findViewById(R.id.fechaPublicacion), findViewById(R.id.title6TL));
                     parseFechas(ofertaDetalle.getFechaApertura(), findViewById(R.id.fechaApertura), findViewById(R.id.title7TL));
                     parseFechas(ofertaDetalle.getFechaCierre(), findViewById(R.id.fechaCierre), findViewById(R.id.title8TL));
 
                     setEdiTextValue(ofertaDetalle.getTiempo(), findViewById(R.id.tiempo), findViewById(R.id.title9TL));
                     setEdiTextValue(String.valueOf(ofertaDetalle.getSalario()), findViewById(R.id.salario), findViewById(R.id.title10TL));
-
 
                     String fotoBase64 = ofertaDetalle.getFotoPortada();
 

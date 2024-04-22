@@ -129,6 +129,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     loadingDialog.cerrarLoadingDialog();
 
+                    if (responseNewData.body().getRol().getNombre().equals("ADMINISTRADOR") || responseNewData.body().getRol().getNombre().equals("ROL DE RESPONSABLE DE CARRERA, UNICAMENTE PUEDE OBSERVAR Y DESCARGAR INFORMACION")) {
+                        loadingDialog.showSimpleDialog("Acceso Denegado", "Actualmente, los administradores no tienen un perfil asignado.");
+                        return;
+                    }
+
                     SharedPreferences preferences = getSharedPreferences("user_data", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
 

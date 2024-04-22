@@ -31,8 +31,6 @@ import com.gamesmindt.myapplication.R;
 import com.gamesmindt.myapplication.Services.OfertasServiceApi;
 import com.gamesmindt.myapplication.Services.PostulacionesServiceApi;
 import com.gamesmindt.myapplication.activities.DetalleOfertaActivity;
-import com.gamesmindt.myapplication.adapters.EmpresasAdapter;
-import com.gamesmindt.myapplication.adapters.OfertaLaboralTrie;
 import com.gamesmindt.myapplication.bd.DBHelper;
 import com.gamesmindt.myapplication.configs.LoadingDialog;
 import com.gamesmindt.myapplication.configs.RetrofitClient;

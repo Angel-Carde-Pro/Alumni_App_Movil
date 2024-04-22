@@ -21,7 +21,7 @@ import com.gamesmindt.myapplication.Model.Postulacion;
 import com.gamesmindt.myapplication.Model.PostulacionDTO;
 import com.gamesmindt.myapplication.R;
 import com.gamesmindt.myapplication.Services.PostulacionesServiceApi;
-import com.gamesmindt.myapplication.activities.DetallePostulaciónActivity;
+import com.gamesmindt.myapplication.activities.DetallePostulacionActivity;
 import com.gamesmindt.myapplication.adapters.PostulacionesAdapter;
 import com.gamesmindt.myapplication.configs.LoadingDialog;
 import com.gamesmindt.myapplication.configs.RetrofitClient;
@@ -169,7 +169,7 @@ public class PostulacionesFragment extends Fragment implements PostulacionesAdap
     @Override
     public void onVerMasClick(Integer id_postulacion) {
         System.out.println("id_postulacion = " + id_postulacion);
-        Intent intent = new Intent(getActivity(), DetallePostulaciónActivity.class);
+        Intent intent = new Intent(getActivity(), DetallePostulacionActivity.class);
         intent.putExtra("id_postulacion", id_postulacion);
         startActivity(intent);
     }

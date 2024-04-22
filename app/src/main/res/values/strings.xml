@@ -22,6 +22,7 @@
     <string name="search_menu_title">Buscar</string>
     <string name="more">Más</string>
     <string name="sure_exit">¿Estás seguro de que quieres salir?</string>
+    <string name="recover_msg">Introduce tu correo electrónico y te enviaremos un código a tu correo electrónico para que vuelvas a entrar en tu cuenta.</string>
 
     <string name="bottom_navigation_menu_home">Inicio</string>
     <string name="help">Ayuda</string>
