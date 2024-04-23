@@ -9,5 +9,5 @@ import retrofit2.http.POST;
 
 public interface RecoverPassServiceApi {
     @POST("/mail/recovery-password")
-    Call<String> sendTokenMail(@Body MailRequest request, @Header("Authorization") String authToken);
+    Call<String> sendTokenMail(@Body MailRequest request);
 }

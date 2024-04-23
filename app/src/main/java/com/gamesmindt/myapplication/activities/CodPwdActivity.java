@@ -33,10 +33,9 @@ import retrofit2.Response;
 public class CodPwdActivity extends AppCompatActivity {
     LoadingDialog loadingDialog = new LoadingDialog(CodPwdActivity.this);
     Button btnSendCod;
-    SharedPreferences preferences;
+//    SharedPreferences preferences;
     TextView iniciarSesionTxt;
     EditText emailTxt;
-    String accessToken = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +44,8 @@ public class CodPwdActivity extends AppCompatActivity {
         RecoverPassServiceApi recoverPassServiceApi = RetrofitClient.getRetrofitInstance().create(RecoverPassServiceApi.class);
         LoadingDialog loadingDialog = new LoadingDialog(CodPwdActivity.this);
 
-        preferences = CodPwdActivity.this.getSharedPreferences("user_data", MODE_PRIVATE);
-        accessToken = preferences.getString("accessToken", "");
+//        preferences = CodPwdActivity.this.getSharedPreferences("user_data", MODE_PRIVATE);
+//        accessToken = preferences.getString("accessToken", "");
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -78,7 +77,7 @@ public class CodPwdActivity extends AppCompatActivity {
                     mailRequest.setSubject("Petición de cambio de contraseña");
                     mailRequest.setCaseEmail("reset-password");
 
-                    Call<String> call = recoverPassServiceApi.sendTokenMail(mailRequest, "Bearer " + accessToken);
+                    Call<String> call = recoverPassServiceApi.sendTokenMail(mailRequest);
                     loadingDialog.startLoagingDialog();
                     call.enqueue(new Callback<String>() {
                         @Override
